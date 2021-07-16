@@ -1,0 +1,3 @@
+[submodule "TinyTermPub/wwwroot"]
+	path = TinyTermPub/wwwroot
+	url = https://github.com/TinyKern/TinyKern.github.io

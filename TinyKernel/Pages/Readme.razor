@@ -1,0 +1,17 @@
+﻿@page "/readme"
+@inject HttpClient HttpClient
+<Title Value="TinyKernel - README"></Title>
+
+
+@((MarkupString)markdownDoc)
+
+@code {
+
+  string markdownDoc;
+  protected override async Task OnInitializedAsync()
+  {
+    markdownDoc = await HttpClient.GetStringAsync("markdown/README.md");
+    markdownDoc = Markdown.Parse(markdownDoc);
+  }
+
+}

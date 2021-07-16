@@ -1,0 +1,13 @@
+﻿@page "/github"
+@inject NavigationManager NavManager
+
+<h1>Redirect Page</h1>
+
+<p>Redirecting to Github Page</p>
+
+@code {
+  protected override void OnInitialized()
+  {
+    NavManager.NavigateTo("https://github.com/TinyKern");
+  }
+}
