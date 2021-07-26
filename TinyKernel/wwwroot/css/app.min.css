@@ -9,8 +9,17 @@
   margin-right: 1rem;
 }
 
+.mx-5{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
 .mt-2{
   margin-top: 0.5rem;
+}
+
+.mr-4{
+  margin-right: 1rem;
 }
 
 .ml-6{
@@ -152,6 +161,10 @@
 .hover\:text-gray-100:hover{
   --tw-text-opacity: 1;
   color: rgba(243, 244, 246, var(--tw-text-opacity));
+}
+
+.hover\:underline:hover{
+  text-decoration: underline;
 }
 
 .hover\:no-underline:hover{

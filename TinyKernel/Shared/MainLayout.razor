@@ -1,10 +1,34 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavManager
 
 <div class="page">
   <div class="main">
     <div class="top-row px-4">
       <h1><a href="/" class="justify-start text-black hover:text-black hover:no-underline">TinyKern</a></h1>
-      <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+      <div class="ml-md-auto mx-5">
+        @{
+          Dictionary<string, string> TinyKernelLinks = new Dictionary<string, string>();
+          TinyKernelLinks.Add("Readme", "/TinyKernel");
+
+          Dictionary<string, string> GithubLinks = new Dictionary<string, string>();
+          GithubLinks.Add("Github", "/github");
+        }
+        <Dropdown TItem="string" OnSelected="@OnSelected">
+          <InitalTip>Menu</InitalTip>
+          <ChildContent>
+            @*<DropdownListItem Item="@">@x</DropdownListItem>*@
+            @foreach (KeyValuePair<string, string> kvp in TinyKernelLinks)
+            {
+              <DropdownListItem Item="@kvp.Value">@kvp.Key</DropdownListItem>
+            }
+            <div class="dropdown-divider"></div>
+            @foreach (KeyValuePair<string, string> kvp in GithubLinks)
+            {
+              <DropdownListItem Item="@kvp.Value">@kvp.Key</DropdownListItem>
+            }
+          </ChildContent>
+        </Dropdown>
+      </div>
     </div>
 
     <div class="content px-4 ml-6">
@@ -14,3 +38,10 @@
     <Footer />
   </div>
 </div>
+
+@code {
+  private void OnSelected(string selection)
+  {
+    NavManager.NavigateTo(selection);
+  }
+}

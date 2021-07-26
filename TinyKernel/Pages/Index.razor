@@ -1,4 +1,5 @@
 ﻿@page "/"
+@*@inject Blazor.Analytics.IAnalytics Analytics*@
 
 <!-- Title -->
 <div class="justify-center flex">
@@ -16,4 +17,12 @@
   <h2 class="mx-4 mt-2"><a class="text-black hover:text-black" href="/github">Github</a></h2>
   <h2 class="mx-4 mt-2"><a class="text-black hover:text-black" href="/readme">Readme</a></h2>
 </div>
+
+@code {
+
+  protected override void OnInitialized()
+  {
+    //Analytics.TrackEvent("Home", "/");
+  }
+}
 

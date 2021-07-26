@@ -1,13 +1,17 @@
 ﻿@page "/github"
 @inject NavigationManager NavManager
+@*@inject Blazor.Analytics.IAnalytics Analytics*@
+
 
 <h1>Redirect Page</h1>
 
 <p>Redirecting to Github Page</p>
 
 @code {
+
   protected override void OnInitialized()
   {
+    //Analytics.TrackEvent("Github", "/github"); 
     NavManager.NavigateTo("https://github.com/TinyKern");
   }
 }

@@ -1,11 +1,17 @@
 ﻿@page "/readme"
 @inject HttpClient HttpClient
-<Title Value="TinyKernel - README"></Title>
+@*@inject Blazor.Analytics.IAnalytics Analytics*@
 
+<Title Value="TinyKernel - README"></Title>
 
 @((MarkupString)markdownDoc)
 
 @code {
+
+  //protected override void OnInitialized()
+  //{
+  //  Analytics.TrackEvent("Readme", "/readme");
+  //}
 
   string markdownDoc;
   protected override async Task OnInitializedAsync()
